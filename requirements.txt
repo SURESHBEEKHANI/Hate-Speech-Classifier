@@ -1,0 +1,37 @@
+# Core Libraries
+numpy                     # Fundamental package for numerical computations
+pandas                    # Data manipulation and analysis
+
+# Machine Learning & Deep Learning
+tensorflow==2.9.2         # Deep learning framework
+scikit-learn              # Machine learning tools and algorithms
+scipy                     # Scientific computing library
+
+# Visualization
+matplotlib                # Plotting library for data visualization
+seaborn                   # Statistical data visualization, built on matplotlib
+
+# Natural Language Processing
+nltk                      # Natural language processing library
+regex                     # Regular expression library
+
+# Model Management and Experimentation
+dvc                       # Data version control, for managing datasets and models
+mlflow==2.2.2             # Experiment tracking and model registry
+
+# Development & Utilities
+notebook                  # Jupyter Notebook support
+python-box==6.0.2         # Convenient way to create dictionaries with dot notation access
+pyYAML                    # YAML parsing and generation library
+tqdm                      # Progress bar library
+joblib                    # Parallel processing and job management
+types-PyYAML              # Type hints for PyYAML, useful in IDEs
+
+# Data Loading and APIs
+gdown                     # Downloads files from Google Drive
+fastapi==0.78.0           # Web framework for building APIs
+uvicorn==0.18.3           # ASGI server for FastAPI
+Jinja2==3.1.2             # Templating engine, often used with FastAPI
+
+# Meta-package for the current directory/module (editable install)
+-e .
