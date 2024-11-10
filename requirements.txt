@@ -32,6 +32,8 @@ gdown                     # Downloads files from Google Drive
 fastapi==0.78.0           # Web framework for building APIs
 uvicorn==0.18.3           # ASGI server for FastAPI
 Jinja2==3.1.2             # Templating engine, often used with FastAPI
+ensure
+
 
 # Meta-package for the current directory/module (editable install)
 -e .
