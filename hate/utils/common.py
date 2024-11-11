@@ -1,149 +1,124 @@
 import os
 from box.exceptions import BoxValueError
 import yaml
-from hate import logger
+from hate.logger import logging
 import json
 import joblib
-from ensure import ensure_annotations  # type: ignore
+from ensure import ensure_annotations
 from box import ConfigBox
 from pathlib import Path
-from typing import Any, List
+from typing import Any
 import base64
+
+
 
 @ensure_annotations
 def read_yaml(path_to_yaml: Path) -> ConfigBox:
-    """Reads YAML file and returns as ConfigBox.
+    """reads yaml file and returns
 
     Args:
-        path_to_yaml (Path): Path to YAML file.
+        path_to_yaml (str): path like input
 
     Raises:
-        ValueError: If YAML file is empty.
-        FileNotFoundError: If the file does not exist.
-        Exception: For other generic issues.
+        ValueError: if yaml file is empty
+        e: empty file
 
     Returns:
-        ConfigBox: Parsed YAML data.
+        ConfigBox: ConfigBox type
     """
     try:
-        if not path_to_yaml.exists():
-            raise FileNotFoundError(f"YAML file not found at: {path_to_yaml}")
-        
         with open(path_to_yaml) as yaml_file:
-            content = yaml.safe_load(yaml_file) or {}
-            if not content:
-                raise BoxValueError("YAML file is empty")
-            logger.info(f"YAML file loaded successfully from: {path_to_yaml}")
+            content = yaml.safe_load(yaml_file)
+            logging.info(f"yaml file: {path_to_yaml} loaded successfully")
             return ConfigBox(content)
     except BoxValueError:
-        raise ValueError("YAML file is empty")
+        raise ValueError("yaml file is empty")
     except Exception as e:
-        logger.error(f"Error reading YAML file at {path_to_yaml}: {e}")
-        raise
+        raise e
+    
+
 
 @ensure_annotations
-def create_directories(path_to_directories: List[Path], verbose=True):
-    """Create list of directories.
+def create_directories(path_to_directories: list, verbose=True):
+    """create list of directories
 
     Args:
-        path_to_directories (List[Path]): List of directory paths.
-        verbose (bool, optional): Log directory creation. Defaults to True.
+        path_to_directories (list): list of path of directories
+        ignore_log (bool, optional): ignore if multiple dirs is to be created. Defaults to False.
     """
     for path in path_to_directories:
         os.makedirs(path, exist_ok=True)
         if verbose:
-            logger.info(f"Created directory at: {path}")
+            logging.info(f"created directory at: {path}")
+
 
 @ensure_annotations
 def save_json(path: Path, data: dict):
-    """Save dictionary data to JSON file.
+    """save json data
 
     Args:
-        path (Path): Path to save JSON file.
-        data (dict): Data to be saved in JSON format.
+        path (Path): path to json file
+        data (dict): data to be saved in json file
     """
-    try:
-        with open(path, "w") as f:
-            json.dump(data, f, indent=4)
-        logger.info(f"JSON file saved at: {path}")
-    except TypeError as e:
-        logger.error(f"Data provided to save_json is not serializable: {e}")
-        raise
-    except Exception as e:
-        logger.error(f"Error saving JSON file at {path}: {e}")
-        raise
+    with open(path, "w") as f:
+        json.dump(data, f, indent=4)
+        logging.info(f"json file saved at: {path}")
+
+
+
 
 @ensure_annotations
 def load_json(path: Path) -> ConfigBox:
-    """Load JSON file and return as ConfigBox.
+    """load json files data
 
     Args:
-        path (Path): Path to JSON file.
+        path (Path): path to json file
 
     Returns:
-        ConfigBox: Parsed JSON data.
+        ConfigBox: data as class attributes instead of dict
     """
-    try:
-        with open(path) as f:
-            content = json.load(f)
-        logger.info(f"JSON file loaded successfully from: {path}")
-        return ConfigBox(content)
-    except FileNotFoundError:
-        logger.error(f"JSON file not found at: {path}")
-        raise
-    except json.JSONDecodeError as e:
-        logger.error(f"Error parsing JSON at {path}: {e}")
-        raise
+    with open(path) as f:
+        content = json.load(f)
+
+    logging.info(f"json file loaded succesfully from: {path}")
+    return ConfigBox(content)
+
 
 @ensure_annotations
 def save_bin(data: Any, path: Path):
-    """Save data as binary file using joblib.
+    """save binary file
 
     Args:
-        data (Any): Data to save.
-        path (Path): Path to save binary file.
+        data (Any): data to be saved as binary
+        path (Path): path to binary file
     """
-    try:
-        joblib.dump(value=data, filename=path)
-        logger.info(f"Binary file saved at: {path}")
-    except Exception as e:
-        logger.error(f"Error saving binary file at {path}: {e}")
-        raise
+    joblib.dump(value=data, filename=path)
+    logging.info(f"binary file saved at: {path}")
+
 
 @ensure_annotations
 def load_bin(path: Path) -> Any:
-    """Load binary data from file.
+    """load binary data
 
     Args:
-        path (Path): Path to binary file.
+        path (Path): path to binary file
 
     Returns:
-        Any: Loaded binary data.
+        Any: object stored in the file
     """
-    try:
-        data = joblib.load(path)
-        logger.info(f"Binary file loaded from: {path}")
-        return data
-    except FileNotFoundError:
-        logger.error(f"Binary file not found at: {path}")
-        raise
-    except Exception as e:
-        logger.error(f"Error loading binary file at {path}: {e}")
-        raise
+    data = joblib.load(path)
+    logging.info(f"binary file loaded from: {path}")
+    return data
 
 @ensure_annotations
 def get_size(path: Path) -> str:
-    """Get file size in KB.
+    """get size in KB
 
     Args:
-        path (Path): Path to file.
+        path (Path): path of the file
 
     Returns:
-        str: File size in KB.
+        str: size in KB
     """
-    try:
-        size_in_kb = round(os.path.getsize(path) / 1024)
-        return f"~ {size_in_kb} KB"
-    except FileNotFoundError:
-        logger.error(f"File not found for size check at: {path}")
-        raise
+    size_in_kb = round(os.path.getsize(path)/1024)
+    return f"~ {size_in_kb} KB"
