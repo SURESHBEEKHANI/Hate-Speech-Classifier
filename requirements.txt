@@ -1,39 +1,37 @@
 # Core Libraries
-numpy                     # Fundamental package for numerical computations
-pandas                    # Data manipulation and analysis
+numpy==1.21.0             # Fundamental package for numerical computations
+pandas==1.3.0             # Data manipulation and analysis
 
 # Machine Learning & Deep Learning
 tensorflow==2.9.2         # Deep learning framework
-scikit-learn              # Machine learning tools and algorithms
-scipy                     # Scientific computing library
+scikit-learn==0.24.0      # Machine learning tools and algorithms
+scipy==1.7.3              # Scientific computing library
 
 # Visualization
-matplotlib                # Plotting library for data visualization
-seaborn                   # Statistical data visualization, built on matplotlib
+matplotlib==3.4.0         # Plotting library for data visualization
+seaborn==0.11.0           # Statistical data visualization, built on matplotlib
 
 # Natural Language Processing
-nltk                      # Natural language processing library
-regex                     # Regular expression library
+nltk==3.6.0               # Natural language processing library
+regex==2021.10.8          # Regular expression library
 
 # Model Management and Experimentation
-dvc                       # Data version control, for managing datasets and models
+dvc==2.8.3                # Data version control, for managing datasets and models
 mlflow==2.2.2             # Experiment tracking and model registry
 
 # Development & Utilities
-notebook                  # Jupyter Notebook support
+notebook==6.4.8           # Jupyter Notebook support
 python-box==6.0.2         # Convenient way to create dictionaries with dot notation access
-pyYAML                    # YAML parsing and generation library
-tqdm                      # Progress bar library
-joblib                    # Parallel processing and job management
-types-PyYAML              # Type hints for PyYAML, useful in IDEs
+pyYAML==6.0               # YAML parsing and generation library
+tqdm==4.62.3              # Progress bar library
+joblib==1.1.0             # Parallel processing and job management
+types-PyYAML==6.0.2       # Type hints for PyYAML, useful in IDEs
 
 # Data Loading and APIs
-gdown                     # Downloads files from Google Drive
+gdown==4.4.0              # Downloads files from Google Drive
 fastapi==0.78.0           # Web framework for building APIs
 uvicorn==0.18.3           # ASGI server for FastAPI
 Jinja2==3.1.2             # Templating engine, often used with FastAPI
-ensure
-
 
 # Meta-package for the current directory/module (editable install)
--e .
+-e .                      # Editable install for the current directory/module
