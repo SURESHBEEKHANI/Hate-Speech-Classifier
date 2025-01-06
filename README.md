@@ -18,12 +18,12 @@ The **Hate-Speech-Classifier** uses **LSTM** networks to detect and classify hat
 8. update the app.py
 
 
-## Notebooks
+## step
 
-1. **`01_data_ingestion.ipynb`**: Ingest and preprocess raw data.
-2. **`02_data_validation.ipynb`**: Validate data quality.
-3. **`03_data_transformation.ipynb`**: Tokenize, pad sequences, and split data.
-4. **`04_model_trainer.ipynb`**: Train and save the LSTM model.
+1. data_ingestion
+2. data_validation
+3. data_transformation
+4. model_trainer
 
 ## LSTM Model
 
