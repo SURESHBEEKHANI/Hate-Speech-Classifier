@@ -1,0 +1,34 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hate-Speech-Classifier</title> 
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Hate-Speech-Classifier</h1>
+
+        <!-- Form for user input -->
+        <form method="POST" action="/predict">
+            <label for="textInput">Enter Text for Prediction:</label><br>
+            <textarea id="textInput" name="text" placeholder="Enter text here..." required>{{ text if text else '' }}</textarea><br><br>
+            <button type="submit">Get Prediction</button>
+        </form>
+
+        <!-- Display prediction result or error -->
+        {% if prediction %}
+        <div id="result">
+            <h2>Prediction Result:</h2>
+            <p>{{ prediction }}</p>
+        </div>
+        {% elif error %}
+        <div id="result">
+            <h2>Error:</h2>
+            <p>{{ error }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
