@@ -1,34 +1,32 @@
-# Hate-Speech-Classifier
+### Hate Speech Classifier
 
 ## Overview
 
-The **Hate-Speech-Classifier** uses **LSTM** networks to detect and classify hate speech in text data. It includes Jupyter Notebooks for data ingestion, validation, transformation, and model training.
-
-
+The **Hate Speech Classifier** utilizes **LSTM** networks to identify and categorize hate speech in text. It incorporates Jupyter Notebooks for data ingestion, validation, transformation, and model training.
 
 ## Workflows
 
-1. Update config.yaml
-2. Update params.yaml
-3. Update entity
-4. Update the configuration manager in src config
-5. update the conponents
-6. update the pipeline
-7. update the main.py
-8. update the app.py
+1. Modify `config.yaml`
+2. Modify `params.yaml`
+3. Modify entity
+4. Update the configuration manager in `src/config`
+5. Update the components
+6. Update the pipeline
+7. Update `main.py`
+8. Update `app.py`
 
+## Steps
 
-## step
-
-1. data_ingestion
-2. data_validation
-3. data_transformation
-4. model_trainer
+1. Data Ingestion
+2. Data Validation
+3. Data Transformation
+4. Model Training
+5. Build Flask App for Inference
 
 ## LSTM Model
 
-The model includes:
-- **Embedding Layer**: Converts text to dense vectors.
-- **LSTM Layer**: Learns temporal dependencies.
+The model consists of:
+- **Embedding Layer**: Converts text into dense vectors.
+- **LSTM Layer**: Captures temporal dependencies.
 - **Dense Layer**: Classifies the text.
-- **Softmax Layer**: Outputs classification probabilities.
+- **Softmax Layer**: Provides classification probabilities.
