@@ -1,10 +1,10 @@
-### Hate Speech Classifier
+## Hate Speech Classifier
 
-## Overview
+#### Overview
 
 The **Hate Speech Classifier** utilizes **LSTM** networks to identify and categorize hate speech in text. It incorporates Jupyter Notebooks for data ingestion, validation, transformation, and model training.
 
-## Workflows
+#### Workflows
 
 1. Modify `config.yaml`
 2. Modify `params.yaml`
@@ -15,7 +15,7 @@ The **Hate Speech Classifier** utilizes **LSTM** networks to identify and catego
 7. Update `main.py`
 8. Update `app.py`
 
-## Steps
+#### Steps
 
 1. Data Ingestion
 2. Data Validation
@@ -23,7 +23,7 @@ The **Hate Speech Classifier** utilizes **LSTM** networks to identify and catego
 4. Model Training
 5. Build Flask App for Inference
 
-## LSTM Model
+#### LSTM Model
 
 The model consists of:
 - **Embedding Layer**: Converts text into dense vectors.
