@@ -1,0 +1,141 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Container Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f7f7f7, #d6d6d6);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    transition: box-shadow 0.5s ease-in-out;
+}
+
+.container:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Header Styling */
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #4e4e4e;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Elements */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #4e4e4e;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Textarea Styling */
+textarea {
+    width: 80%;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 2px solid #aaa;
+    resize: none;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease;
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #5f27cd;
+    box-shadow: 0 0 5px rgba(95, 39, 205, 0.5);
+}
+
+/* Button Styling */
+button {
+    padding: 12px 30px;
+    font-size: 18px;
+    background: linear-gradient(145deg, #6a2eec, #8e44ad);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+button:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Result Box Styling */
+#result {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #f7f7f7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#result.show {
+    opacity: 1;
+}
+
+#result h2 {
+    font-size: 24px;
+    color: #5f27cd;
+    margin-bottom: 15px;
+}
+
+#result p {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Error Box */
+#error {
+    background: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+/* Animation for Result Box */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#result {
+    animation: fadeIn 1s forwards;
+}
